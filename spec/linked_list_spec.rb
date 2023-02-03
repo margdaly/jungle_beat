@@ -17,4 +17,41 @@ RSpec.describe LinkedList do
       expect(list.head).to eq(nil)
     end
   end
+
+  describe 'can do things' do
+    xit 'can add data' do
+
+      list = LinkedList.new
+
+      expect(list.append("doop")).to eq ("doop")
+    end
+  end
+
+  describe 'knows things' do
+    xit 'knows self' do
+
+      list = LinkedList.new
+      list.append("doop")
+
+      expect(list.head.next_node).to eq(nil)
+    end
+  end
+
+  describe 'can do things' do
+    xit 'can count' do
+
+      list = LinkedList.new
+      list.append("doop")
+
+      expect(list.count).to eq (1)
+    end
+
+    xit 'can list' do
+
+      list = LinkedList.new
+      list.append("doop")
+
+      expect(list.to_string).to eq ("doop")
+    end
+  end
 end
