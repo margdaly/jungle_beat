@@ -1,10 +1,17 @@
 class LinkedList
-  attr_reader :data, :next_node, :head
+  attr_reader :head
 
-  def initialize(data = nil)
-    @data = data
-    @next_node = nil
-    @head = nil
+  def initialize(head = nil)
+    @head = head
+  end
+
+  def append(node)
+  end
+
+  def count
+  end
+
+  def to_string
   end
 
 end
