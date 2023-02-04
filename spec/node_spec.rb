@@ -1,5 +1,5 @@
 require 'rspec'
-require '.lib/node'
+require './lib/node'
 
 RSpec.describe Node do
   describe 'exists' do
@@ -7,7 +7,7 @@ RSpec.describe Node do
 
       node = Node.new("plop")
       
-      expect(node).to be_instnace_of(Node)
+      expect(node).to be_instance_of(Node)
     end
 
     it 'has data'do
