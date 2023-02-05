@@ -23,8 +23,8 @@ RSpec.describe LinkedList do
     it 'can add data' do
 
       list = LinkedList.new
+      list.append("doop")
 
-      expect(list.append("doop")).to eq ("doop")
       expect(list.head).to be_instance_of(Node)
     end
   end
@@ -34,8 +34,9 @@ RSpec.describe LinkedList do
 
       list = LinkedList.new
       list.append("doop")
-# require 'pry'; binding.pry
+
       expect(list.head.next_node).to eq(nil)
+      expect(list.head.data).to eq("doop")
     end
   end
 
@@ -47,18 +48,43 @@ RSpec.describe LinkedList do
 
       expect(list.count).to eq (1)
       expect(list.head.data).to eq("doop")
-      expect(list.head.next_node).to eq(nil)
-      expect(list.to_string).to eq ("doop")
     end
 
-    xit 'can list' do
+    it 'can list' do
+
+      list = LinkedList.new
+      list.append("doop")
+      
+      expect(list.to_string).to eq ("doop")
+    end
+  end
+
+  describe 'can do more' do
+    it 'can add a link' do
 
       list = LinkedList.new
       list.append("doop")
       list.append("deep")
 
-      expect(list.head.next_node).to eq(Node.new("deep"))
-      expect(list.to_string).to eq ("doop deep")
+      expect(list.current_node).to be_instance_of(Node)
+      expect(list.head.data).to eq("doop")
+      expect(list.head.next_node).to eq(list.current_node)
+    end
+
+    it 'can count higher' do
+      list = LinkedList.new
+      list.append("doop")
+      list.append("deep")
+
+      expect(list.count).to eq(2)
+    end
+
+    it 'can list a longer string' do
+      list = LinkedList.new
+      list.append("doop")
+      list.append("deep")
+
+      expect(list.to_string).to eq("doop deep")
     end
   end
 end
