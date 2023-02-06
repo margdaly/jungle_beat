@@ -99,13 +99,25 @@ RSpec.describe LinkedList do
       list.append("plop")
       list.append("suu")
       list.prepend("dop")
-
+      
       expect(list.head.data).to eq("dop")
       expect(list.to_string).to eq("dop plop suu")
       expect(list.count).to eq(3)
     end
 
-    it 'can insert' do
+    it 'can prepend multiple times' do
+      list = LinkedList.new
+      list.append("plop")
+      list.append("suu")
+      list.prepend("dop")
+      list.prepend("deep")
+    
+      expect(list.head.data).to eq("deep")
+      expect(list.to_string).to eq("deep dop plop suu")
+      expect(list.count).to eq(4)
+    end
+
+    xit 'can insert' do
       list = LinkedList.new
       list.append("plop")
       list.append("suu")
