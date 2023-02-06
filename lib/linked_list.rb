@@ -27,28 +27,15 @@ class LinkedList
   def to_string
     to_string = ""
     if @count == 1 || @count == 0
-      to_string << @head.data
+      to_string << @head.data << " "
     else @current_node = @head
       to_string << @current_node.data << " "
       while @current_node.next_node != nil
         @current_node = @current_node.next_node
-        to_string << @current_node.data
+        to_string << @current_node.data << " "
       end
     end
-    to_string
+    to_string.chop
   end
 
-
-    #elsif @head.next_node != nil
-     #to_string << @
-
-  # def to_string
-  #   to_string = ""
-  #   begin
-  #     to_string << @head.data 
-  #     to_string << " " << @head.next_node.data
-  #     to_string << " " << @current_node.data
-  #   end until @current_node.data != nil && @current_node.next_node == nil
-  #   to_string
-  # end
 end
