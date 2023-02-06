@@ -27,10 +27,8 @@ RSpec.describe LinkedList do
 
       expect(list.head).to be_instance_of(Node)
     end
-  end
 
-  describe 'knows things' do
-    it 'knows self' do
+    it 'knows things' do
 
       list = LinkedList.new
       list.append("doop")
@@ -38,9 +36,8 @@ RSpec.describe LinkedList do
       expect(list.head.next_node).to eq(nil)
       expect(list.head.data).to eq("doop")
     end
-  end
 
-  describe 'can do things' do
+  
     it 'can count' do
 
       list = LinkedList.new
@@ -94,5 +91,9 @@ RSpec.describe LinkedList do
 
       expect(list.to_string).to eq("doop deep dope")
     end
+  end
+
+  describe 'can insert and prepend' do
+    it 'can '
   end
 end
