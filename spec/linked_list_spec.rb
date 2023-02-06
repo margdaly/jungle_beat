@@ -94,6 +94,26 @@ RSpec.describe LinkedList do
   end
 
   describe 'can insert and prepend' do
-    it 'can '
+    it 'can prepend' do
+      list = LinkedList.new
+      list.append("plop")
+      list.append("suu")
+      list.prepend("dop")
+
+      expect(list.head.data).to eq("dop")
+      expect(list.to_string).to eq("dop plop suu")
+      expect(list.count).to eq(3)
+    end
+
+    it 'can insert' do
+      list = LinkedList.new
+      list.append("plop")
+      list.append("suu")
+      list.prepend("dop")
+      list.insert(1, "woo")
+
+      expect(list.insert(1, "woo")).to eq("woo")
+      expect(list.to_string).to eq("dop woo plop suu")
+    end
   end
 end
