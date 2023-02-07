@@ -69,9 +69,20 @@ class LinkedList
     else
       new_node.next_node = current_node
       previous.next_node = new_node 
-    
     end
     new_node.data
   end
 
+  def find(index, amount)
+    sounds = []
+    current_node = @head 
+    index.times do 
+      current_node = current_node.next_node
+    end
+    amount.times do 
+      sounds << current_node.data
+      current_node = current_node.next_node 
+    end
+    sounds.join(" ")
+  end
 end
