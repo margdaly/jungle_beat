@@ -111,21 +111,80 @@ RSpec.describe LinkedList do
       list.append("suu")
       list.prepend("dop")
       list.prepend("deep")
-    
+  
       expect(list.head.data).to eq("deep")
       expect(list.to_string).to eq("deep dop plop suu")
       expect(list.count).to eq(4)
     end
 
-    xit 'can insert' do
+    it 'can insert' do
       list = LinkedList.new
       list.append("plop")
       list.append("suu")
       list.prepend("dop")
-      list.insert(1, "woo")
 
       expect(list.insert(1, "woo")).to eq("woo")
       expect(list.to_string).to eq("dop woo plop suu")
+    end
+  end
+
+  describe 'can find, pop and include?' do 
+    it 'can still list things' do 
+      list = LinkedList.new
+      list.append("woo")
+      list.append("shi")
+      list.append("shu")
+      list.append("blop")
+      list.prepend("deep")
+
+      expect(list.to_string).to eq("deep woo shi shu blop")
+    end
+
+    it 'can find something over here' do
+      list = LinkedList.new
+      list.append("woo")
+      list.append("shi")
+      list.append("shu")
+      list.append("blop")
+      list.prepend("deep")
+
+      expect(list.find(2, 1)).to eq("shi")
+    end
+
+    it 'can find something over there' do
+      list = LinkedList.new
+      list.append("woo")
+      list.append("shi")
+      list.append("shu")
+      list.append("blop")
+      list.prepend("deep")
+
+      expect(list.find(1, 3)).to eq("woo shi shu")
+    end
+
+    it 'can include' do
+      list = LinkedList.new
+      list.append("woo")
+      list.append("shi")
+      list.append("shu")
+      list.append("blop")
+      list.prepend("deep")
+
+      expect(list.includes?("deep")).to be(true)
+      expect(list.includes?("dep")).to be(false)
+    end
+
+    it 'can pop' do
+      list = LinkedList.new
+      list.append("woo")
+      list.append("shi")
+      list.append("shu")
+      list.append("blop")
+      list.prepend("deep")
+
+      expect(list.pop).to eq("blop")
+      expect(list.pop).to eq("shu")
+      expect(list.to_string).to eq("deep woo shi")
     end
   end
 end
