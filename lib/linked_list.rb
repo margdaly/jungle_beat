@@ -70,6 +70,7 @@ class LinkedList
       new_node.next_node = current_node
       previous.next_node = new_node 
     end
+    @count += 1
     new_node.data
   end
 
@@ -85,4 +86,31 @@ class LinkedList
     end
     sounds.join(" ")
   end
+
+  def includes?(item)
+    current_node = @head
+    while current_node.next_node != nil 
+      current_node = current_node.next_node
+      if current_node.data == item
+        return true
+      else
+        return false
+      end
+    end
+  end
+
+
+  def pop
+    deleted_node = []
+    current_node = @head
+    previous_node = nil
+    until current_node.next_node == nil
+      previous_node = current_node
+      current_node = current_node.next_node
+    end
+    deleted_node << current_node.data
+    previous_node.next_node = nil
+    current_node = previous_node.next_node
+    deleted_node.join
+  end 
 end
