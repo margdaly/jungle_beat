@@ -7,6 +7,7 @@ class LinkedList
     @head = head
     @count = 0
     @current_node = current_node
+   
     
   end
 
@@ -28,11 +29,11 @@ class LinkedList
     to_string = ""
     if @count == 1 || @count == 0
       to_string << @head.data << " "
-    else @current_node = @head
-      to_string << @current_node.data << " "
-      while @current_node.next_node != nil
-        @current_node = @current_node.next_node
-        to_string << @current_node.data << " "
+    else current_node = @head
+      to_string << current_node.data << " "
+      while current_node.next_node != nil
+        current_node = current_node.next_node
+        to_string << current_node.data << " "
       end
     end
     to_string.chop
@@ -42,18 +43,35 @@ class LinkedList
     @count += 1
     if @head.data == nil
        @head = Node.new(data)
-       @current_node = @head
+       current_node = @head
     else @head.data != nil
-      @current_node = Node.new(data)
-      @current_node.next_node = @head
-      @head = @current_node
-      # require 'pry'; binding.pry
-      # make a new node and assign to variable
-      #newnode.nextnode = head
-      while @current_node.next_node != nil
-        @current_node = @current_node.next_node
+      current_node = Node.new(data)
+      current_node.next_node = @head
+      @head = current_node
+      while current_node.next_node != nil
+        current_node = current_node.next_node
       end
     end
     @head.data
   end
+
+  def insert(index, data)
+    current_node = @head
+    previous = nil
+    
+    index.times do
+      previous = current_node
+    current_node = current_node.next_node
+    end
+    new_node = Node.new(data)
+    if @count == 0
+      @head = new_node
+    else
+      new_node.next_node = current_node
+      previous.next_node = new_node 
+    
+    end
+    new_node.data
+  end
+
 end
