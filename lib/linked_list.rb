@@ -89,13 +89,16 @@ class LinkedList
 
   def includes?(item)
     current_node = @head
+    sounds = []
+    sounds << current_node.data
     while current_node.next_node != nil 
       current_node = current_node.next_node
-      if current_node.data == item
-        return true
-      else
-        return false
-      end
+      sounds << current_node.data
+    end
+    if sounds.include?(item) == true
+      return true
+    else
+      return false
     end
   end
 
