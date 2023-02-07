@@ -5,14 +5,12 @@ require './lib/node'
 RSpec.describe LinkedList do
   describe 'exists' do
     it 'is an instance of LinkedList' do
-
       list = LinkedList.new
 
       expect(list).to be_instance_of(LinkedList)
     end
 
     it 'has a head' do
-
       list = LinkedList.new
 
       expect(list.head).to eq(nil)
@@ -21,7 +19,6 @@ RSpec.describe LinkedList do
 
   describe 'can do things' do
     it 'can add data' do
-
       list = LinkedList.new
       list.append("doop")
 
@@ -29,7 +26,6 @@ RSpec.describe LinkedList do
     end
 
     it 'knows things' do
-
       list = LinkedList.new
       list.append("doop")
 
@@ -39,7 +35,6 @@ RSpec.describe LinkedList do
 
   
     it 'can count' do
-
       list = LinkedList.new
       list.append("doop")
 
@@ -48,7 +43,6 @@ RSpec.describe LinkedList do
     end
 
     it 'can list' do
-
       list = LinkedList.new
       list.append("doop")
 
@@ -58,7 +52,6 @@ RSpec.describe LinkedList do
 
   describe 'can do more' do
     it 'can add a link' do
-
       list = LinkedList.new
       list.append("doop")
       list.append("deep")
