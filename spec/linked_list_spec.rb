@@ -164,14 +164,16 @@ RSpec.describe LinkedList do
 
     it 'can include' do
       list = LinkedList.new
+      list.append("deep")
       list.append("woo")
       list.append("shi")
       list.append("shu")
       list.append("blop")
-      list.prepend("deep")
 
-      expect(list.includes?("deep")).to be(true)
-      expect(list.includes?("dep")).to be(false)
+      expect(list.includes?("deep")).to eq(true)
+      expect(list.includes?("dep")).to eq(false)
+      expect(list.includes?("hsi")).to eq(false)
+      expect(list.includes?("shi")).to eq(true)
     end
 
     it 'can pop' do
@@ -183,6 +185,18 @@ RSpec.describe LinkedList do
       list.prepend("deep")
 
       expect(list.pop).to eq("blop")
+      expect(list.to_string).to eq("deep woo shi shu")
+    end
+
+    it 'can pop again' do
+      list = LinkedList.new
+      list.append("deep")
+      list.append("woo")
+      list.append("shi")
+      list.append("shu")
+      list.append("blop")
+      list.pop
+
       expect(list.pop).to eq("shu")
       expect(list.to_string).to eq("deep woo shi")
     end
