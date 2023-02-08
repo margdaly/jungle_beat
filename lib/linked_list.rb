@@ -7,8 +7,6 @@ class LinkedList
     @head = head
     @count = 0
     @current_node = current_node
-   
-    
   end
 
   def append(data)
